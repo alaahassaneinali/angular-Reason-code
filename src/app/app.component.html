@@ -1,0 +1,24 @@
+<div>
+<strong>{{reasonTitle}}</strong>
+<br />
+{{reasonLabel}}
+</div>
+
+<div class="product-returns-reason-code-main">
+<div
+  class="product-returns-reason-code"
+  *ngFor="let code of reasonCodes | keyvalue"
+>
+  <input
+    id="reason-{{code.key}}"
+    type="checkbox"
+    [value]="code.key"
+    (change)="onCheckboxChange(code.value)"
+  />
+  {{code.value.displayText}}
+</div>
+<div
+  class="product-returns-reason-code-empty"
+  *ngFor="let i of emptyItems "
+></div>
+</div>
